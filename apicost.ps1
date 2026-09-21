@@ -159,9 +159,7 @@ function Vendor-Short($id) {
 function Build-Tooltip {
   $s = Get-Settings
   $q = Get-Quota
-  $lines = @($q.lines)
-  if ($lines.Count -ge 1) { $lines[0] = (Vendor-Short $s.vendor) + ' ' + $lines[0] }
-  else { $lines = @((Vendor-Short $s.vendor)) }
+  $lines = @((Vendor-Short $s.vendor)) + @($q.lines)
   $text = $lines -join [Environment]::NewLine
   if ($text.Length -gt 63) { $text = $text.Substring(0, 63) }
   return $text
