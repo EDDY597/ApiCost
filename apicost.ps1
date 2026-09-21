@@ -152,9 +152,17 @@ function Get-Quota {
   }
 }
 
+function Vendor-Short($id) {
+  switch ($id) { 'opencode' { 'OC' } 'commandcode' { 'CC' } 'siliconflow' { 'SF' } 'deepseek' { 'DS' } default { 'AC' } }
+}
+
 function Build-Tooltip {
+  $s = Get-Settings
   $q = Get-Quota
-  $text = (@($q.header) + $q.lines) -join [Environment]::NewLine
+  $lines = @($q.lines)
+  if ($lines.Count -ge 1) { $lines[0] = (Vendor-Short $s.vendor) + ' ' + $lines[0] }
+  else { $lines = @((Vendor-Short $s.vendor)) }
+  $text = $lines -join [Environment]::NewLine
   if ($text.Length -gt 63) { $text = $text.Substring(0, 63) }
   return $text
 }
