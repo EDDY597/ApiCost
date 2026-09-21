@@ -1,5 +1,5 @@
 gateway.config.json
-tray/tray.settings.json
-tray/tray.ico
+apicost.settings.json
+apicost.ico
 node_modules/
 *.log
