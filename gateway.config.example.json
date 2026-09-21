@@ -1,0 +1,41 @@
+{
+  "hostname": "127.0.0.1",
+  "port": 8787,
+  "token": "",
+  "upstreams": [
+    {
+      "id": "opencode-go",
+      "name": "OpenCode Go",
+      "type": "opencode-go",
+      "prefix": "opencode-go",
+      "apiKey": "REPLACE_WITH_YOUR_OPENCODE_API_KEY",
+      "paramFallback": true,
+      "enabled": true
+    },
+    {
+      "id": "opencode-zen",
+      "name": "OpenCode Zen",
+      "type": "openai",
+      "prefix": "opencode-zen",
+      "baseURL": "https://opencode.ai/zen/v1",
+      "apiKey": "REPLACE_WITH_YOUR_OPENCODE_API_KEY",
+      "protocol": "openai",
+      "responsesPrefixes": ["gpt-", "grok-"],
+      "anthropicPrefixes": ["claude-", "qwen"],
+      "sessionHeader": true,
+      "paramFallback": true,
+      "enabled": false
+    },
+    {
+      "id": "commandcode-goal",
+      "name": "Command Code",
+      "type": "openai",
+      "prefix": "commandcode-goal",
+      "baseURL": "https://api.commandcode.ai/provider/v1",
+      "apiKey": "REPLACE_WITH_YOUR_COMMAND_CODE_KEY",
+      "protocol": "openai",
+      "anthropicPrefixes": ["claude"],
+      "enabled": false
+    }
+  ]
+}

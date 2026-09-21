@@ -1,0 +1,5 @@
+gateway.config.json
+tray/tray.settings.json
+tray/tray.ico
+node_modules/
+*.log
