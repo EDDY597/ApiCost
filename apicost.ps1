@@ -270,6 +270,10 @@ if ($SelfTest) {
   exit 0
 }
 
+$script:Created = $false
+$script:Mutex = New-Object System.Threading.Mutex($true, 'Local\ApiCostTraySingleton', [ref]$script:Created)
+if (-not $script:Created) { exit 0 }
+
 $script:Notify = New-Object System.Windows.Forms.NotifyIcon
 $script:Notify.Icon = New-ApiCostIcon
 $script:Notify.Visible = $true
